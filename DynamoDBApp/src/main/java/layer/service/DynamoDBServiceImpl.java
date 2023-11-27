@@ -86,6 +86,18 @@ public class DynamoDBServiceImpl implements DynamoDBService {
         and update it in the table record according to provided parameters.
         Returns a text message as operation result.
         */
+
+        User userToUpdate = new User();
+        userToUpdate.setEmail(pathParameters.get(TABLE_PARTITION_KEY));
+
+        User existingUser = dynamoDBMapper.load(User.class, userToUpdate.getEmail());
+        if (existingUser != null) {
+            DynamoDBServiceImpl.updateUsersNotNullAttributes(existingUser, userToUpdate);
+            dynamoDBMapper.save(existingUser);
+            return getJsonResponse("User updated: " + existingUser.getEmail());
+        } else {
+            return getJsonResponse("User not found");
+        }
     }
 
     @Override
