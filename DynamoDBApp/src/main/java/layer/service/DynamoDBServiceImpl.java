@@ -19,6 +19,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * edited: Oleg Rudoi at 28 Nov 2023
+ */
 public class DynamoDBServiceImpl implements DynamoDBService {
 
     public static final String TABLE_PARTITION_KEY = "email";

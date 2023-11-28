@@ -10,6 +10,9 @@ import layer.service.DynamoDBService;
 import layer.service.DynamoDBServiceImpl;
 
 
+/**
+ * edited: Oleg Rudoi at 28 Nov 2023
+ */
 public class UpdateUserFunction implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
     private static final DynamoDBService dynamoDBService = new DynamoDBServiceImpl();
     private static final APIGatewayService apiGatewayService = new APIGatewayServiceImpl();
